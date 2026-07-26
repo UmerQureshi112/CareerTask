@@ -1,0 +1,78 @@
+:root {
+    --body: #010c18;
+    --add-button: #1661da;
+    --white-color: #fff;
+    --gray-color: gray;
+    --hover: #1658c2;
+    --LRS: #04172b;
+}
+
+.Right-hand-side {
+    height: 100vh;
+    width: 50vw;
+    background-color: var(--body);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.img-box {
+    height: 19vw;
+    width: 19vw;
+    border-radius: 7px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+}
+
+.del {
+    height: 2.5vw;
+    width: 100%;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border: 1px solid rgba(105, 101, 101, 0.274);
+    background-color: var(--body);
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: absolute;
+
+}
+
+.del>.item>svg {
+    height: 1.5vw;
+    cursor: pointer;
+    color: var(--gray-color);
+    margin-right: 10px;
+}
+
+.del>.pencil>svg:hover {
+    color: var(--hover);
+}
+
+.del>.pencil>svg {
+    height: 1.5vw;
+    cursor: pointer;
+    color: var(--gray-color);
+    margin-right: 10px;
+}
+
+.del>.item>svg:hover {
+    color: var(--hover);
+}
+
+.img-box>.imgg {
+    background-color: var(--body);
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin-top: 31px;
+}
+
+.img-box>.imgg>img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="CareerTask is a responsive task management website built with HTML, CSS and JavaScript. Manage tasks easily with a clean and modern interface.">
+  <title>CareerTask - Responsive Task Management Website</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/leftside.css">
+  <link rel="stylesheet" href="CSS/righthand.css">
+  <link rel="stylesheet" href="CSS/responsive.css">
+  <link rel="shortcut icon" href="assets/SVG/icon.svg" type="image/x-icon">
+</head>
+
+<body>
+
+  <!-- *********** delete alert ************ -->
+  <div class="alert">
+    <div class="deleteAlert">
+      <p><span>x</span> delete item</p>
+    </div>
+  </div>
+
+  <!-- *********** Clipbord alert ************ -->
+  <div class="Calert">
+    <div class="CopyClipbord">
+      <p><span>✔</span> Copied to Clipbord</p>
+    </div>
+  </div>
+
+  <!-- *********** blank alert ************ -->
+  <div class="blank">
+    <div class="blankElert">
+      <p><span>x</span> Field cannot be empty</p>
+    </div>
+  </div>
+
+  <!-- ***** Icon Heading ****** -->
+  <div class="speace">
+
+    <div class="head">
+      <img src="assets/SVG/icon.svg" alt="">
+      <h1>CareerTask</h1>
+    </div>
+
+    <div class="hame-burger">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- ======= start container ============================================================== -->
+  <div class="container">
+
+    <!-- //////////////////////////////////////////// -->
+    <!-- *********left-hand-side ********** -->
+    <div class="left-hand-side">
+
+      <div class="list-items">
+        <h1>list items</h1>
+        <div class="cancle-svg">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="list">
+        <ul></ul>
+      </div>
+
+      <div class="button">
+        <button>Clear all</button>
+      </div>
+
+    </div>
+
+    <!-- *********left-hand-side ********** -->
+    <!-- //////////////////////////////////////////////////// -->
+
+
+    <!-- //////////////////////////////////////////////////// -->
+    <!-- *********center-side ********** -->
+    <!-- ***** add-profiles ***** -->
+    <div class="center-side">
+      <div class="flex">
+
+        <!-- ***** profiles-box ****** -->
+        <div class="profile-box">
+          <div id="content">
+
+            <div class="circle">
+              <div class="profile">
+                <img src="assets/SVG/profle.svg" alt="">
+              </div>
+
+            </div>
+
+            <button class="profile-add" type="submit">Add Profile</button>
+            <input class="add-file" type="file">
+
+            <div class="saveing">
+              <button class="delete" type="submit">delete</button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ***** profiles-box ****** -->
+        <div class="profile-box">
+          <div class="resumer">
+            <button id="resume" type="button">Add Resume</button>
+            <input class="resume-file" type="file" accept=".pdf,.doc,.docx,image/*">
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ***** Name OR Gmail ****** -->
+      <div id="center">
+        <div class="flexer">
+
+          <div class="box">
+            <input type="text" class="inp" placeholder=" ">
+            <label for="N-G">Name OR Gmail</label>
+          </div>
+          <button class="add">Add</button>
+        </div>
+
+        <!-- ***** Password OR National Identity Card ****** -->
+        <div class="flexer">
+
+          <div class="box">
+            <input type="text" class="inp" placeholder=" ">
+            <label for="Password OR National Identity Card">Password OR National Identity Card</label>
+          </div>
+          <button class="add">Add</button>
+        </div>
+
+        <div class="flexer">
+          <div class="box">
+            <input type="tel" class="inp" placeholder=" ">
+            <label for="phone">Add a Phone Number</label>
+          </div>
+          <button class="add">Add</button>
+        </div>
+
+        <div class="flexer">
+          <div class="box">
+            <textarea name="add" class="inp" id="S-B" placeholder="Add Subject "></textarea>
+          </div>
+        </div>
+
+
+        <div id="subject">
+          <button class="add" id="add-subject">Add</button>
+        </div>
+      </div>
+      <!-- ***** Name OR Gmail compleate ****** -->
+    </div>
+    <!-- *********center-side ********** -->
+    <!-- ///////////////////////////////////////////////////// -->
+
+    <!-- ///////////////////////////////////////////////////// -->
+    <!-- *********Right-hand-side ********** -->
+    <div class="Right-hand-side">
+
+      <div class="right-resumes">
+        <div class="cancle-svg">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </div>
+        <h1>Resume Files</h1>
+      </div>
+
+      <div class="right-side-box"></div>
+    </div>
+    <!-- *********Right-hand-side ********** -->
+    <!-- ///////////////////////////////////////////////////// -->
+  </div>
+  <!-- ***** compleate container ****** -->
+  <script src="script.js"></script>
+</body>
+
+</html>

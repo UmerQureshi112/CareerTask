@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*  ====== Define the root color ====== */
+:root {
+    --body: #010c18;
+    --add-button: #1661da;
+    --white-color: #fff;
+    --gray-color: gray;
+    --hover: #1658c2;
+    --LRS: #04172b;
+}
+
+.center-side {
+    height: 100vh;
+    width: 100vw;
+}
+
+::-webkit-scrollbar {
+    width: 1vw;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--body);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--LRS);
+    border-radius: 5px;
+    cursor: wait;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+body {
+    position: relative;
+    font-family: sans-serif;
+    padding: 10px;
+    background-color: var(--body);
+}
+
+
+/*  ====== Web icon OR  Name ====== */
+.speace {
+    display: flex;
+    justify-content: space-between;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+}
+
+img {
+    height: 10vw;
+    width: 10vw;
+}
+
+h1 {
+    color: var(--white-color);
+    font-family: sans-serif;
+    font-size: 3vw;
+}
+
+.hame-burger {
+    padding: 3vw 1vw;
+    display: none;
+}
+
+.hame-burger svg {
+    height: 3.5vw;
+    width: 3.5vw;
+    cursor: pointer;
+    color: var(--white-color);
+    /* display: none; */
+}
+
+.list-items {
+    display: flex;
+    justify-content: space-between;
+    display: none;
+
+}
+
+.right-resumes {
+    display: flex;
+    justify-content: space-between;
+    display: none;
+}
+
+.cancle-svg {
+    height: 30px;
+    width: 30px;
+    color: white;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+/*  ====== body around center ====== */
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    gap: 20px;
+}
+
+.profile-box {
+    height: 20vw;
+    width: 20vw;
+    background-color: #04172b;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14px;
+}
+
+.circle {
+    border: 1px solid var(--gray-color);
+    position: relative;
+    height: 11vw;
+    width: 11vw;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile>img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.profile-add {
+    height: 3vw;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--add-button);
+    color: var(--white-color);
+    margin: 12px 17px;
+    padding: 0px 21px;
+    border: none;
+}
+
+.add-file {
+    display: none;
+}
+
+
+.profile-add:hover {
+    background-color: var(--hover);
+}
+
+.saveing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete {
+    height: 2.5vw;
+    width: 5vw;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--add-button);
+    color: var(--white-color);
+    font-size: 12px;
+    border: none;
+}
+
+.delete:hover {
+    background-color: var(--hover);
+}
+
+/*  ====== add type ====== */
+
+#center {
+    margin: 2.5vw 0vw;
+}
+
+.resumer {
+    height: 20vw;
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#resume {
+    height: 3vw;
+    padding: 0px 12px;
+    background-color: var(--add-button);
+    color: var(--white-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.resume-file {
+    display: none;
+}
+
+#resume:hover {
+    background-color: var(--hover);
+}
+
+.resume-file {
+    display: none;
+}
+
+/*  ====== flexer1 - flexer2 ====== */
+
+.flexer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 25px 0px;
+}
+
+.box {
+    position: relative;
+}
+
+/*  ====== type suggestions-1 ====== */
+
+.inp {
+    width: 25vw;
+    padding: 12px;
+    border: none;
+    border-radius: 7px;
+    outline: none;
+    font-size: 16px;
+}
+
+.box label {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    color: var(--gray-color);
+    background-color: var(--white-color);
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.inp:focus+label,
+.inp:not(:placeholder-shown)+label {
+    pointer-events: none;
+    top: -3px;
+    left: 8px;
+    font-size: 12px;
+    color: var(--white-color);
+    background-color: var(--add-button);
+    padding: 0 1vw;
+    border-radius: 3px;
+}
+
+.inp:focus {
+    outline: 2px solid var(--add-button);
+}
+
+#S-B {
+    width: 32vw;
+    height: 23vw;
+    padding: 15px 15px;
+    border: none;
+    border-radius: 7px;
+    outline: none;
+    font-size: 14px;
+}
+
+
+.add {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 7px;
+    background: var(--add-button);
+    color: var(--white-color);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add:hover {
+    background-color: var(--hover);
+}
+
+#subject {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-subject {
+    padding: 1vw 15vw;
+    border: none;
+    border-radius: 7px;
+    background: var(--add-button);
+    color: var(--white-color);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#add-subject:hover {
+    background-color: var(--hover);
+}
+
+.button {
+    display: flex;
+    justify-content: end;
+}
+
+.button>button {
+    background-color: var(--body);
+    border: none;
+    color: var(--gray-color);
+    font-size: 14px;
+    font-family: sans-serif;
+    cursor: pointer;
+    margin-right: 15px;
+    display: none;
+}

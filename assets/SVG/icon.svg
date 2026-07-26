@@ -1,0 +1,49 @@
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220">
+  <!-- Background Container (Optional, matching image) -->
+  <rect width="none" height="none" fill="none" rx="10"/>
+
+  <g transform="translate(0, 10)">
+    <!-- Main Sphere Background -->
+    <circle cx="100" cy="90" r="55" fill="#1661da"/>
+
+    <!-- Top Left / Center Negative Space (The Page/Cutout) -->
+    <path d="M 100 35 
+             C 80 35, 65 48, 60 65 
+             C 72 58, 85 52, 100 52 
+             C 112 52, 125 58, 132 65
+             L 100 115 
+             Z" 
+          fill="#1661da"/>
+
+    <!-- Inner Floating Paper/Card Detail -->
+    <path d="M 72 63 
+             L 100 40 
+             L 122 65 
+             L 95 105 
+             Z" 
+          fill="#fff"/>
+    
+    <!-- Top Edge Curvature of the Inner Paper -->
+    <path d="M 100 40 C 90 42, 80 50, 72 63 C 82 55, 92 50, 100 40 Z" fill="#fff"/>
+
+    <!-- Bottom Dynamic Swooshes (Negative Space Cuts) -->
+    <!-- Swoosh 1 (Top Thick) -->
+    <path d="M 50 110 
+             Q 100 155, 150 110 
+             Q 100 135, 50 110" 
+          fill="#fff"/>
+
+    <!-- Swoosh 2 (Middle Thin) -->
+    <path d="M 54 123 
+             Q 100 163, 146 123 
+             Q 100 148, 54 123" 
+          fill="#fff"/>
+
+    <!-- Swoosh 3 (Bottom Thin) -->
+    <path d="M 63 135 
+             Q 100 170, 137 135 
+             Q 100 158, 63 135" 
+          fill="#1661da"/>
+
+  </g>
+</svg>
