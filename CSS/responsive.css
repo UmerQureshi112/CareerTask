@@ -418,6 +418,7 @@
     font-size: 12px;
     margin-left: 5px;
     border: none;
+    cursor: pointer;
     user-select: none;
   }
 

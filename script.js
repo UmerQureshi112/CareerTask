@@ -15,13 +15,12 @@ addFile.addEventListener("change", (event) => {
     circle.classList.add("circle");
     circle.style.border = "none";
     profileImg.src = URL.createObjectURL(img);
-    localStorage.setItem(img)
-
-    del.addEventListener("click", () => {
+    
+      del.addEventListener("click", () => {
       circle.classList.add("circle");
       circle.style.border = "1px solid gray";
       profileImg.src = `assets/SVG/profle.svg`;
-      localStorage.removeItem(img)
+      
     });
   };
 });
