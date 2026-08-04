@@ -31,6 +31,27 @@ let button = document.querySelector(".button button");
 let ul = document.querySelector("ul");
 let inp = document.querySelectorAll(".inp");
 let add = document.querySelectorAll(".add");
+let form = document.querySelector("form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let isEmpty = false;
+
+  inp.forEach((val) => {
+    if (val.value.trim() === "") {
+      isEmpty = true;
+    }
+  });
+
+  if (isEmpty) {
+    blankElert.style.display = "block";
+    return;
+  }
+
+  blankElert.style.display = "none";
+  calulation();
+});
 
 function calulation() {
   inp.forEach((val, index) => {
@@ -154,65 +175,58 @@ resume.addEventListener("click", () => {
 
 resumeFile.addEventListener("change", (run) => {
   let fixed = run.target.files[0];
+  if (!fixed) return;
 
-  function change() {
+  let rightBox = document.querySelector(".right-side-box");
+  let imgBox = document.createElement("div");
+  let del = document.createElement("div");
+  let imgg = document.createElement("div");
 
-    let imgBox = document.createElement("div");
-    let del = document.createElement("div");
-    let imgg = document.createElement("div");
-    let img = document.createElement("img");
-    let rightBox = document.querySelector(".right-side-box");
+  imgBox.classList.add("img-box");
+  del.classList.add("del");
+  imgg.classList.add("imgg");
 
-    imgBox.classList.add("img-box");
-    del.classList.add("del");
-    imgg.classList.add("imgg");
-
-
-    del.innerHTML = `<div class ="item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  del.innerHTML = `<div class ="item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" /> </div>
         </svg>
-        <div class="pencil"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen-line-icon lucide-pen-line"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg> </div>`
+        <div class="pencil"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen-line-icon lucide-pen-line"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg> </div>`;
 
+  imgBox.appendChild(imgg);
+  imgBox.appendChild(del);
+  rightBox.appendChild(imgBox);
+
+  if (fixed.type.startsWith("image/")) {
+    let img = document.createElement("img");
     imgg.appendChild(img);
-    imgBox.appendChild(imgg);
-    imgBox.appendChild(del);
-    rightBox.appendChild(imgBox);
-
     img.src = URL.createObjectURL(fixed);
+  } else {
+    imgg.classList.add("file-preview");
+    imgg.innerHTML = `
+      <div class="file-card">
+        <div class="file-icon">📄</div>
+        <div class="file-details">
+          <span class="file-name">${fixed.name}</span>
+          <span class="file-type">${fixed.type || "Resume File"}</span>
+        </div>
+      </div>`;
+  }
 
-    RightHandSide.appendChild(rightBox);
+  let item = del.querySelector(".item svg");
+  let delItem = document.querySelector(".deleteAlert");
+  let pencil = del.querySelector(".pencil svg");
 
-    let item = del.querySelector(".item svg");
-    let delItem = document.querySelector(".deleteAlert");
-    let pencil = del.querySelector(".pencil svg");
+  item.addEventListener("click", () => {
+    imgBox.remove();
+    delItem.style.display = "flex";
+    setTimeout(() => {
+      delItem.style.display = "none";
+    }, 1500);
+  });
 
-    item.addEventListener("click", () => {
-      imgBox.remove();
-
-      delItem.style.display = "flex";
-
-      setTimeout(() => {
-        delItem.style.display = "none";
-      }, 1500);
-    });
-
-    pencil.addEventListener("click", () => {
-      resumeFile.click();
-
-      resumeFile.addEventListener("change", (event) => {
-
-        const newPhoto = event.target.files[0];
-        if (newPhoto) {
-          img.src = URL.createObjectURL(newPhoto);
-          imgBox.remove();
-        };
-      });
-    });
-  };
-  if (fixed) {
-    change();
-  };
-
+  pencil.addEventListener("click", () => {
+    resumeFile.value = "";
+    resumeFile.click();
+  });
 });
 
 // working to an outher mobail 
