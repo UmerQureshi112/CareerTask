@@ -37,6 +37,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 25vw;
 }
 
 
@@ -197,7 +198,7 @@ h1 {
 /*  ====== add type ====== */
 
 #center {
-    margin: 2.5vw 0vw;
+    margin: 6.5vw 0vw;
 }
 
 .resumer {

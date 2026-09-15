@@ -71,6 +71,7 @@ function calulation() {
       let date = document.createElement("div");
       date.textContent = new Date().toLocaleDateString();
       date.classList.add("date");
+      localStorage.setItem(`key${index}`, inp[index].value)
 
       let li = document.createElement("li");
       li.innerHTML = `<span class="copy"> ${val.value}</span>
@@ -162,6 +163,99 @@ function calulation() {
   });
 };
 calulation();
+    
+       let date = document.createElement("div");
+      date.textContent = new Date().toLocaleDateString();
+      date.classList.add("date");
+
+      let getItem = localStorage.getItem("key");
+      if (getItem) {
+            let li = document.createElement("li");
+       li.innerHTML = `<span class="copy"> ${getItem}</span>
+         <div class="svg">
+        <div class="icon copied">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy-slash-icon lucide-copy-slash"><line x1="12" x2="18" y1="18" y2="12"/><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        </div>
+        
+        <div class="icon deleted">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"   stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+        </svg>
+        </div>
+        </div>`;
+
+      ul.appendChild(date);
+      ul.appendChild(li);
+      list.appendChild(ul);
+
+        button.style.display = "flex";
+      button.addEventListener("click", () => {
+        let deleteAlert = document.querySelector(".deleteAlert");
+        deleteAlert.style.display = "flex";
+
+        setTimeout(() => {
+          deleteAlert.style.display = "none";
+        }, 1500);
+        li.remove();
+        date.remove();
+        button.style.display = "none";
+      });
+
+            // ********** Copy to clipbord *************
+      let Clip = li.querySelector(".copied");
+      let CopyClipbord = document.querySelector(".CopyClipbord");
+      let copy = li.querySelector(".copy");
+
+      Clip.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(copy.textContent);
+          CopyClipbord.style.display = "flex";
+
+          setTimeout(() => {
+            CopyClipbord.style.display = "none";
+          }, 1500);
+
+        } catch (err) {
+          console.log("Clipboard Error:", err);
+
+          // Fallback
+
+          const textarea = document.createElement("textarea");
+          textarea.value = copy.textContent;
+          document.body.appendChild(textarea);
+          CopyClipbord.style.display = "flex";
+
+          setTimeout(() => {
+            CopyClipbord.style.display = "none";
+          }, 1500);
+
+          textarea.select();
+          textarea.setSelectionRange(0, 99999);
+
+          document.execCommand("copy");
+          document.body.removeChild(textarea);
+        };
+      });
+
+       // ********** list item delete *************
+      let delet = li.querySelector(".deleted");
+      let deleteAlert = document.querySelector(".deleteAlert");
+      delet.addEventListener("click", () => {
+
+        li.remove();
+        date.remove()
+        deleteAlert.style.display = "flex";
+        if (ul.children.length === 0) {
+          button.style.display = "none";
+        };
+
+        setTimeout(() => {
+          deleteAlert.style.display = "none";
+        }, 1500);
+
+      });
+      }
+   
 
 // ********** right hand working to img *********** //
 
