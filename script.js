@@ -1,3 +1,10 @@
+const supaBaseURL = 'https://huyseufnvazmaeadhsaz.supabase.co';
+const supaBaseApiKey = 'sb_publishable_ufzeOCNag7yliATf-ORpsg_Ee930BKr'; 
+
+const supabaseClient = supabase.createClient(
+  supaBaseURL,supaBaseApiKey
+);
+
 let profileImg = document.querySelector(".profile img");
 let profileAdd = document.querySelector(".profile-add");
 let circle = document.querySelector(".circle");
@@ -30,35 +37,23 @@ let list = document.querySelector(".list");
 let button = document.querySelector(".button button");
 let ul = document.querySelector("ul");
 let inp = document.querySelectorAll(".inp");
+let blankElert = document.querySelector(".blankElert");
 let add = document.querySelectorAll(".add");
 let form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  let isEmpty = false;
-
-  inp.forEach((val) => {
-    if (val.value.trim() === "") {
-      isEmpty = true;
-    }
-  });
-
-  if (isEmpty) {
-    blankElert.style.display = "block";
-    return;
-  }
-
   blankElert.style.display = "none";
   calulation();
 });
 
 function calulation() {
   inp.forEach((val, index) => {
-    add[index].addEventListener("click", () => {
+    add[index].addEventListener("click", async () => {
+      let inPutValue = val.value;
 
       if (inp[index].value.trim() === "") {
-        let blankElert = document.querySelector(".blankElert")
+       let blankElert = document.querySelector(".blankElert");
         blankElert.style.display = "flex";
 
         setTimeout(() => {
@@ -66,15 +61,19 @@ function calulation() {
         }, 1500);
 
         return;
-      };
+      }
+
 
       let date = document.createElement("div");
       date.textContent = new Date().toLocaleDateString();
       date.classList.add("date");
-      localStorage.setItem(`key${index}`, inp[index].value)
+      localStorage.setItem(`key${index}`, inp[index].value);
+   
+       const response =  await supabaseClient.from("CareerTask").insert({task: inPutValue});
+      console.log(response);
 
       let li = document.createElement("li");
-      li.innerHTML = `<span class="copy"> ${val.value}</span>
+      li.innerHTML = `<span class="copy"> ${inPutValue}</span>
          <div class="svg">
         <div class="icon copied">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy-slash-icon lucide-copy-slash"><line x1="12" x2="18" y1="18" y2="12"/><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
@@ -88,10 +87,12 @@ function calulation() {
         </div>`;
 
       // ********** adjust to unorderlist *************
-
+      // console.log(val.value)
       ul.appendChild(date);
       ul.appendChild(li);
       list.appendChild(ul);
+
+
 
       val.value = "";
       button.style.display = "flex";
@@ -255,7 +256,6 @@ calulation();
 
       });
       }
-   
 
 // ********** right hand working to img *********** //
 
